@@ -1,5 +1,4 @@
 #include "CServo.h"
-#include <Arduino.h>  // Ensure compatibility with Arduino framework
 
 // Constructor
 CServo::CServo(int servoPin) {

@@ -1,7 +1,8 @@
 #ifndef CServo_h
 #define CServo_h
 
-#include "Servo.h"
+#include <Arduino.h>
+#include <Servo.h>
 
 class CServo {
 private:
