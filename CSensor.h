@@ -5,15 +5,17 @@
 
 class CSensor {
   private:
-    int _recvpin, _trigPin, _echopin;
+    int _recvPin, _trigPin, _echoPin, _LedPin, _isObstaclePin, _isObstacle;
 
   public:
     // Constructor
-    CSensor(int recvpin, int trigPin, int echopin);
+    CSensor(int recvPin, int trigPin, int echoPin, int isObstaclePin,int ledPin );
 
     // Public methods
     int checkInfraredSensor();
     void initialize();
+    float checkUltrasonicDistance();
+    bool checkHutomwua();
 };
 
 #endif

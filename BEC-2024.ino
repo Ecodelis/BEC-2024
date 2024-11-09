@@ -1,8 +1,8 @@
-#include "Cpins.h"
+
 #include "CSensor.h"
 
 
-CSensor sensor(11, 9, 10);
+CSensor sensor(11, 9, 10,2,13);
 
 
 void setup() {
@@ -13,7 +13,11 @@ void setup() {
 }
 
 void loop() {
-  sensor.checkInfraredSensor();
+  //sensor.checkInfraredSensor();
+
+  // sensor.checkUltrasonicDistance();
+  sensor.checkHutomwua();
+  delay(500);
 }
 
 
