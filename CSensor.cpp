@@ -37,7 +37,6 @@ int CSensor::checkInfraredSensor() {
         }
         IrReceiver.resume();  // Prepare for the next signal
     }
-  
     return 0;  // Return 0 if no signal is received
 }
 float CSensor::checkUltrasonicDistance(){
@@ -51,9 +50,7 @@ float CSensor::checkUltrasonicDistance(){
     long duration = pulseIn(_echoPin, HIGH);
     float distance = duration * 0.0343 / 2;
 
-    Serial.print("Distance: ");
-    Serial.print(distance);
-    Serial.println(" cm");
+
     return  distance;
     // Calculate the distance (cm)
 }

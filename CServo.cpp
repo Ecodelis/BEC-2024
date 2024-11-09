@@ -1,4 +1,5 @@
 #include "CServo.h"
+#include <Servo.h>
 
 // Constructor
 CServo::CServo(int servoPin) {
@@ -28,19 +29,19 @@ int CServo::getAngle() {
 }
 
 // Sweep between two angles with a delay
-void CServo::sweep(int startAngle, int endAngle, int delayTime) {
-    startAngle = constrain(startAngle, 0, 180);
-    endAngle = constrain(endAngle, 0, 180);
+void CServo::sweep(int startAngle, int endAngle, int delayTime = 15) {
+        startAngle = constrain(startAngle, 0, 180);
+        endAngle = constrain(endAngle, 0, 180);
 
-    if (startAngle < endAngle) {
-        for (int angle = startAngle; angle <= endAngle; angle++) {
-            servo.write(angle);
-            delay(delayTime);
-        }
-    } else {
-        for (int angle = startAngle; angle >= endAngle; angle--) {
-            servo.write(angle);
-            delay(delayTime);
+        if (startAngle < endAngle) {
+            for (int angle = startAngle; angle <= endAngle; angle++) {
+                servo.write(angle);
+                delay(delayTime);
+            }
+        } else {
+            for (int angle = startAngle; angle >= endAngle; angle--) {
+                servo.write(angle);
+                delay(delayTime);
+            }
         }
     }
-}
