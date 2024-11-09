@@ -1,6 +1,8 @@
 #include "CMotor.h"
 #include "CServo.h"
-CMotor _motor(2, 3, 4, 5, A0, A1); // Change these pins to match your wiring
+
+
+CMotor _motor(2, 3, 4, 5, A0, A1);
 CServo _servo(9);
 
 void setup() {
@@ -11,10 +13,10 @@ void setup() {
 
 void loop() {
     if (Serial.available() > 0) {
-        String input = Serial.readString();
-        int input_num = input.toInt();
-        Serial.print("You entered: ");
-        Serial.println(input);
+        char input = Serial.read();  // Read a single character
+        //int input_num = input.toInt();
+        //Serial.print("You entered: ");
+        //Serial.println(input);
 
         if (input == 'w' || input == 'W') {
             _motor.forward();
@@ -24,12 +26,7 @@ void loop() {
             _motor.left();
         } else if (input == 'd' || input == 'D') {
             _motor.right();
-        }else if (input_num >= 0 && input_num <= 180) {
-            // Convert the input character to a servo angle (0-180)
-            Serial.print("Setting servo angle to: ");
-            Serial.println(input_num);
-            _servo.setAngle(input_num);
-        }
+            }
         else {
             _motor.stop();
         }

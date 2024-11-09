@@ -3,7 +3,7 @@
 
 #include <Arduino.h>
 
-class MotorController {
+class CMotor {
 private:
     int _motor1Pin1, _motor1Pin2;
     int _motor2Pin1, _motor2Pin2;
@@ -11,7 +11,7 @@ private:
 
 public:
     // Constructor
-    MotorController(int m1p1, int m1p2, int m2p1, int m2p2, int en1, int en2);
+    CMotor(int m1p1, int m1p2, int m2p1, int m2p2, int en1, int en2);
 
     // Public methods
     void setSpeed(int speed);

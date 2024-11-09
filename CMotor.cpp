@@ -1,7 +1,7 @@
 #include "CMotor.h"
 
 // Constructor
-MotorController::MotorController(int m1p1, int m1p2, int m2p1, int m2p2, int en1, int en2) {
+CMotor::CMotor(int m1p1, int m1p2, int m2p1, int m2p2, int en1, int en2) {
     _motor1Pin1 = m1p1;
     _motor1Pin2 = m1p2;
     _motor2Pin1 = m2p1;
@@ -18,14 +18,14 @@ MotorController::MotorController(int m1p1, int m1p2, int m2p1, int m2p2, int en1
 }
 
 // Set motor speed
-void MotorController::setSpeed(int speed) {
+void CMotor::setSpeed(int speed) {
     speed = constrain(speed, 0, 255);
     analogWrite(_enablePin1, speed);
     analogWrite(_enablePin2, speed);
 }
 
 // Move forward
-void MotorController::forward() {
+void CMotor::forward() {
     digitalWrite(_motor1Pin1, HIGH);
     digitalWrite(_motor1Pin2, LOW);
     digitalWrite(_motor2Pin1, HIGH);
@@ -33,7 +33,7 @@ void MotorController::forward() {
 }
 
 // Move backward
-void MotorController::backward() {
+void CMotor::backward() {
     digitalWrite(_motor1Pin1, LOW);
     digitalWrite(_motor1Pin2, HIGH);
     digitalWrite(_motor2Pin1, LOW);
@@ -41,7 +41,7 @@ void MotorController::backward() {
 }
 
 // Turn left
-void MotorController::left() {
+void CMotor::left() {
     digitalWrite(_motor1Pin1, LOW);
     digitalWrite(_motor1Pin2, HIGH);
     digitalWrite(_motor2Pin1, HIGH);
@@ -49,7 +49,7 @@ void MotorController::left() {
 }
 
 // Turn right
-void MotorController::right() {
+void CMotor::right() {
     digitalWrite(_motor1Pin1, HIGH);
     digitalWrite(_motor1Pin2, LOW);
     digitalWrite(_motor2Pin1, LOW);
@@ -57,7 +57,7 @@ void MotorController::right() {
 }
 
 // Stop the motors
-void MotorController::stop() {
+void CMotor::stop() {
     digitalWrite(_motor1Pin1, LOW);
     digitalWrite(_motor1Pin2, LOW);
     digitalWrite(_motor2Pin1, LOW);
