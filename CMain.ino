@@ -6,7 +6,8 @@
 CMotor _motor(2, 3, 4, 5, A0, A1);
 
 // Servo
-CServo _servo(6);
+CServo _servo_1(6);
+CServo _servo_2(7);
 
 // Infrared Sensor
 int const maxObjDetectDist = 30;//cm
@@ -20,7 +21,10 @@ void setup() {
   Serial.begin(9600);
   _motor.setSpeed(150);  // Set initial speed
   sensor.initialize();
-  _servo.attach();
+  _servo_1.attach();
+  _servo_2.attach();
+      _servo_1.setAngle(0);
+    _servo_2.setAngle(0);
 }
 
 
@@ -84,6 +88,25 @@ void loop() {
    else if (hexCode == 0x1C) // back
    {
      _motor.backward();
+   }
+   else if (hexCode == 0X47)
+   {
+    //_servo_1.sweep(0, 250);
+    _servo_1.setAngle(0);
+   // _servo_2.setAngle(0);
+    delay(1000);
+    _servo_1.setAngle(20);
+   delay(1000);
+
+    delay(1000);
+    _servo_2.setAngle(150);
+    delay(1000);
+   }
+   else if(hexCode == 0x15)
+   {
+    _servo_1.setAngle(0);
+    _servo_2.setAngle(0);
+    delay(1000);
    }
   else
   {
